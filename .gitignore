@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+/Village Evacuation/[Ll]ibrary/
+/Village Evacuation/[Tt]emp/
+/Village Evacuation/[Oo]bj/
+/Village Evacuation/[Bb]uild/
+/Village Evacuation/[Bb]uilds/
+/Village Evacuation/[Ll]ogs/
+/Village Evacuation/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
