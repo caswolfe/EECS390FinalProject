@@ -30,6 +30,6 @@ public class CameraController : MonoBehaviour
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, player.transform.position.x - maxOffset, player.transform.position.x + maxOffset),
                                          Mathf.Clamp(transform.position.y, player.transform.position.y - maxOffset, player.transform.position.y + maxOffset),
-                                         transform.position.y);
+                                         -1);
     }
 }
