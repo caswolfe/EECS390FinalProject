@@ -26,6 +26,11 @@ public class DirectionalEvent : MonoBehaviour
             } else if (hitObj.tag == "Helpful" && Distance <= 0.003) {
                 Debug.Log("You washed your hands");
                 Destroy(hitObj);
+            } else if (hitObj.tag == "Boss") {
+                /* this is how we should deal with enemies and entities getting hit.
+                Enemies and NPCs should have a script that has a function that 
+                says how to react to a hit and then here all we do is call that function */
+                hitObj.GetComponent<BossMovement>().test(); 
             }
         }
     }
