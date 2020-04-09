@@ -51,12 +51,16 @@ public class BossAttack : MonoBehaviour
         float time = 0;
         while ( time < bulletRotateTime) {
             time += Time.deltaTime;
-            item.transform.RotateAround(transform.position, new Vector3(0, 0, 1f), speed); 
+            if (item != null) {
+                item.transform.RotateAround(transform.position, new Vector3(0, 0, 1f), speed); 
+            }
             yield return null;
         }
 
         // shoot bullets out from center of boss at random speed between 2 and 10
-        StartCoroutine(Shoot(item, Random.Range(5f,10f)));
+        if (item != null) {
+            StartCoroutine(Shoot(item, Random.Range(5f,10f)));
+        }
     }
 
     public IEnumerator Shoot(GameObject item, float bulletTravelSpeed) {
@@ -66,11 +70,15 @@ public class BossAttack : MonoBehaviour
         float positionY = item.transform.position.y - transform.position.y;
         while (time < bulletTravelTime) {
             time += Time.deltaTime;
-            item.transform.position += new Vector3(Time.deltaTime * positionX * bulletTravelSpeed, Time.deltaTime * positionY * bulletTravelSpeed, 0);
+            if (item != null) {
+                item.transform.position += new Vector3(Time.deltaTime * positionX * bulletTravelSpeed, Time.deltaTime * positionY * bulletTravelSpeed, 0);
+            }
             yield return null;
         }
 
-        Destroy(item);
+        if (item != null) {
+            Destroy(item);
+        }
     }
     
     

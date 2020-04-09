@@ -13,10 +13,9 @@ public class DirectionalEvent : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up * 10);
-            Debug.DrawLine(transform.position,hit.point, Color.red);
             hitObj = hit.transform.gameObject;
             Distance = Mathf.Abs(hit.point.y - transform.position.y);
-            Debug.Log(hitObj.tag + ": " + Distance);
+
             if (hitObj.tag == "Friendly") {
                 Debug.Log("Student was sent home");
                 Destroy(hitObj);
@@ -30,7 +29,7 @@ public class DirectionalEvent : MonoBehaviour
                 /* this is how we should deal with enemies and entities getting hit.
                 Enemies and NPCs should have a script that has a function that 
                 says how to react to a hit and then here all we do is call that function */
-                hitObj.GetComponent<BossMovement>().test(); 
+                hitObj.GetComponent<BossController>().takeDamage(10); 
             }
         }
     }

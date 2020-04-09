@@ -25,8 +25,4 @@ public class BossMovement : MonoBehaviour
     void FixedUpdate() {
         rb.AddForce(movement * maxSpeed);
     }
-
-    public void test() {
-        Debug.Log("hi");
-    }
 }
