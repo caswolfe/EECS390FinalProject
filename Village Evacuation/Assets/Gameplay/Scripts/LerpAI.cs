@@ -19,6 +19,8 @@ public class LerpAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 original = this.transform.position;
+
         // Technically possible that any of the end pts picked are not accessible. This would result in the NPC never moving (?) or potentially being stuck...
         if (transform.position == _center)
         {
@@ -37,7 +39,9 @@ public class LerpAI : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, _end, Time.deltaTime * speed);
         }
-
+        Vector3 difference = this.transform.position - _end;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 270);
 
     }
 
