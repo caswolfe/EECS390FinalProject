@@ -3,12 +3,15 @@ using System.Collections;
 
 // Modified from ch07 unity package (originally for zombies)
 public class WanderingAI : MonoBehaviour {
-	public const float baseSpeed = 0.5f;
+	public float baseSpeed = 0.5f;
+	public float enemyRange = 1f;
 
-	public float speed;
+	private float speed;
 	private GameObject playerObject;
 	private bool _alive;
 	private float _multiplier;
+	private Ray sight;
+
 	// May need this later for animations
 	/*
 	void Awake() {
@@ -40,10 +43,26 @@ public class WanderingAI : MonoBehaviour {
 		}
 
 	}
-	
+
+	void FixedUpdate()
+	{
+		sight.origin = transform.position;
+		sight.direction = transform.forward;
+		RaycastHit rayHit;
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+		if (Physics.Raycast(sight, out rayHit, enemyRange))
+		{
+			Debug.DrawLine(sight.origin, rayHit.point, Color.red);
+			if (rayHit.collider.tag == "Player")
+			{
+				Debug.Log("Player hit.");
+			}
+		}
+	}
+
 	void LateUpdate() {
 		if (_alive) {
-
 
 			//if very far away zombie speed = 0: idle animation
 			//if somewhat close zombie speed = walking speed: walking animation
@@ -52,15 +71,15 @@ public class WanderingAI : MonoBehaviour {
 			Vector3 diff = playerObject.transform.position - transform.position;
 			float range = diff.magnitude;
 
-			if (range > 7.0f) {
+			if (range > 5.0f) {
 				_multiplier = 0.0f;
 			}
 
-	/*		if (range > 5.0f && range <= 7.0f) { 
+			if (range > 5.0f && range <= 9.0f) { 
 				_multiplier = 1.0f;
-			} */
+			}
 
-			if (range <= 7.0f) { 
+			if (range <= 9.0f) { 
 				_multiplier = 10.0f;
 			}
 
@@ -71,23 +90,7 @@ public class WanderingAI : MonoBehaviour {
 			Vector3 difference = playerObject.transform.position - transform.position;
 			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
-
-			//transform.LookAt(playerObject.transform);
-			/*
-						Ray ray = new Ray(transform.position, transform.forward);
-						RaycastHit hit;
-						if (Physics.SphereCast(ray, 0.75f, out hit)) {
-							GameObject hitObject = hit.transform.gameObject;
-							if (hitObject.GetComponent<PlayerCharacter>()) {
-								Debug.log("Hit.");
-							}
-							else if (hit.distance < obstacleRange) {
-								float angle = Random.Range(-110, 110);
-								transform.Rotate(0, angle, 0);
-							}
-						}*/
 		}
-		else { Debug.Log("Dead.");  }
 	}
 
 	public void SetAlive(bool alive) {
