@@ -9,6 +9,7 @@ TagManager:
   - Helpful
   - Boss
   - Wall
+  - BossBullet
   layers:
   - Default
   - TransparentFX

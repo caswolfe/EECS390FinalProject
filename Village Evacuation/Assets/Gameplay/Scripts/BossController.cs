@@ -23,14 +23,14 @@ public class BossController : MonoBehaviour
     {
 
         // update should do a health check like this and react accordingly
-        if (health <= 0) {    
-            foreach (GameObject child in transform) {
-                Destroy(child);
-            }
+        if (health <= 0) {
             if (round < 4) {
                 for (int i = 0; i < 2; i++) {
-                    GameObject b = Instantiate(bossPrefab) as GameObject;
-                    b.transform.localScale = transform.localScale / (transform.localScale.x / 2);
+                    GameObject b = Instantiate(bossPrefab) as GameObject;    
+                    foreach(Transform child in b.transform)
+                    {
+                        Destroy(child.gameObject);
+                    }
                 }
             } else {
                 GameObject enemy = Instantiate(enemyPrefab) as GameObject;
