@@ -5747,6 +5747,11 @@ PrefabInstance:
       propertyPath: SceneToLoadNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9102771356900927392, guid: a1fdbc3343ad75143816a9767e354f3c,
+        type: 3}
+      propertyPath: toLoadScene
+      value: House2
+      objectReference: {fileID: 0}
     - target: {fileID: 9102771356900927393, guid: a1fdbc3343ad75143816a9767e354f3c,
         type: 3}
       propertyPath: m_Offset.x

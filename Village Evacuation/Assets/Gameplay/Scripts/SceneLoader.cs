@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public int SceneToLoadNumber;
+
+    public string toLoadScene;
 
     void OnTriggerEnter2D(Collider2D other){
         Debug.Log("collided with " + other.tag);
         if(other.tag == "Player"){
-            SceneManager.LoadScene(SceneToLoadNumber);
+            SceneManager.LoadScene(toLoadScene);
         }
     }
 
