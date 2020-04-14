@@ -10,7 +10,8 @@ public class Room : MonoBehaviour{
 
     public void Start(){
         this.debugVolumeViewer.SetActive(false);
-        this.rooms[this.getRandomRoomIndex()].SetActive(true);
+        int index = this.getRandomRoomIndex();
+        this.rooms[index].SetActive(true);
     }
 
     private int getRandomRoomIndex(){
