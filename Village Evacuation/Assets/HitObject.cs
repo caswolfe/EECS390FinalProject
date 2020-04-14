@@ -18,8 +18,14 @@ public class HitObject : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(gameObject);
-        
-        col.gameObject.GetComponent<PlayerController>().takeDamage(10);
+        if (col.gameObject.tag != "Boss" && col.gameObject.tag != "Wall")
+        {
+            Destroy(gameObject);
+        }
+
+        if (col.gameObject.tag == "Player")
+        {
+            col.gameObject.GetComponent<PlayerController>().takeDamage(10);
+        }
     }
 }
