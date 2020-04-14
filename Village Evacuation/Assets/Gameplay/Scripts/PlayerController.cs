@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = SceneController.Instance.playerHealth;
     }
 
     // Update is called once per frame
@@ -27,5 +27,10 @@ public class PlayerController : MonoBehaviour
 
     public int getHealth() {
         return health;
+    }
+
+    public void SavePlayer()
+    {
+        SceneController.Instance.playerHealth = health;
     }
 }

@@ -7,12 +7,12 @@ public class FriendlyController : MonoBehaviour
     [SerializeField] private GameObject controller;
 
     void Start() {
-        controller.GetComponent<SceneController>().updateFriendlies(1);
+        SceneController.Instance.friendlies++;
     }
 
     public void save() {
         // play audio and animation of save, reduce entities that need to be saved to move on, 
-        controller.GetComponent<SceneController>().updateFriendlies(-1);
+        SceneController.Instance.friendlies--;
         Destroy(gameObject);
     }
 }
