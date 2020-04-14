@@ -8,8 +8,6 @@ public class BossAttack : MonoBehaviour
 
     public float bulletRotateTime;
 
-    public float bulletTravelTime;
-
     public float bulletSpawnRate;
 
     private float time = 0;
@@ -39,7 +37,8 @@ public class BossAttack : MonoBehaviour
     void SpawnBullet() {
         GameObject b = Instantiate(bullet) as GameObject;
         b.transform.parent=transform;
-        b.transform.position = transform.position + new Vector3(2f,0,+0.1f);
+        b.transform.localScale *= transform.localScale.x;
+        b.transform.position = transform.position + new Vector3(transform.localScale.x / 2f,0,+0.1f);
 
         b.transform.RotateAround(transform.position, new Vector3(0, 0, 1f), Random.Range(0f, 360f)); 
 
@@ -56,30 +55,14 @@ public class BossAttack : MonoBehaviour
             }
             yield return null;
         }
-
+        
         // shoot bullets out from center of boss at random speed between 2 and 10
         if (item != null) {
-            StartCoroutine(Shoot(item, Random.Range(5f,10f)));
+            
+            item.transform.parent = null;
+            float positionX = item.transform.position.x - transform.position.x;
+            float positionY = item.transform.position.y - transform.position.y;
+            item.GetComponent<HitObject>().Shoot(Random.Range(5f,10f), positionX, positionY);
         }
-    }
-
-    public IEnumerator Shoot(GameObject item, float bulletTravelSpeed) {
-        float time = 0;
-        item.transform.parent = null;
-        float positionX = item.transform.position.x - transform.position.x;
-        float positionY = item.transform.position.y - transform.position.y;
-        while (time < bulletTravelTime) {
-            time += Time.deltaTime;
-            if (item != null) {
-                item.transform.position += new Vector3(Time.deltaTime * positionX * bulletTravelSpeed, Time.deltaTime * positionY * bulletTravelSpeed, 0);
-            }
-            yield return null;
-        }
-
-        if (item != null) {
-            Destroy(item);
-        }
-    }
-    
-    
+    } 
 }
