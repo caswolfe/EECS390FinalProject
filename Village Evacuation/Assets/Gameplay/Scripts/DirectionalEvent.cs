@@ -20,12 +20,9 @@ public class DirectionalEvent : MonoBehaviour
 
             if (hitObj.tag == "Friendly") {
                 Debug.Log("Student was sent home");
-                Destroy(hitObj);
+                hitObj.GetComponent<FriendlyController>().save();
             } else if (hitObj.tag == "Enemy") {
                 Debug.Log("Covid-19 was killed");
-                Destroy(hitObj);
-            } else if (hitObj.tag == "Helpful" && Distance <= 0.003) {
-                Debug.Log("You washed your hands");
                 Destroy(hitObj);
             } else if (hitObj.tag == "Boss") {
                 /* this is how we should deal with enemies and entities getting hit.
