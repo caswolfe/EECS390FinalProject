@@ -15,6 +15,8 @@ public class DirectionalEvent : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up * 10);
             hitObj = hit.transform.gameObject;
             Distance = Mathf.Abs(hit.point.y - transform.position.y);
+            Vector3 mouseVector = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            Debug.DrawLine(transform.position, mouseVector * 10, Color.green);
 
             if (hitObj.tag == "Friendly") {
                 Debug.Log("Student was sent home");

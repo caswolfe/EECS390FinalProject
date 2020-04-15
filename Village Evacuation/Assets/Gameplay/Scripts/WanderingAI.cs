@@ -10,20 +10,11 @@ public class WanderingAI : MonoBehaviour {
 	private GameObject playerObject;
 	private bool _alive;
 	private float _multiplier;
-	private Ray sight;
-
-	// May need this later for animations
-	/*
-	void Awake() {
-		Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
-	}
-
-	void OnDestroy() {
-		Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
-	} */
+	private bool paused;
 
 	void Start() {
 		_alive = true;
+		paused = false;
 		
 		playerObject = GameObject.Find("Player");
 		speed = baseSpeed;
@@ -44,25 +35,9 @@ public class WanderingAI : MonoBehaviour {
 
 	}
 
-	void FixedUpdate()
-	{
-		sight.origin = transform.position;
-		sight.direction = transform.forward;
-		RaycastHit rayHit;
-		Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-		if (Physics.Raycast(sight, out rayHit, enemyRange))
-		{
-			Debug.DrawLine(sight.origin, rayHit.point, Color.red);
-			if (rayHit.collider.tag == "Player")
-			{
-				Debug.Log("Player hit.");
-			}
-		}
-	}
 
 	void LateUpdate() {
-		if (_alive) {
+		if (_alive && !paused) {
 
 			//if very far away zombie speed = 0: idle animation
 			//if somewhat close zombie speed = walking speed: walking animation
@@ -90,6 +65,7 @@ public class WanderingAI : MonoBehaviour {
 			Vector3 difference = playerObject.transform.position - transform.position;
 			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
+
 		}
 	}
 
@@ -101,5 +77,23 @@ public class WanderingAI : MonoBehaviour {
 		speed = baseSpeed * value;
 	}
 
+	IEnumerator Pause()
+    {
+		yield return new WaitForSeconds(1);
+		paused = false;
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+    {
+		if (collision.gameObject.tag == "Player")
+        {
+			GetComponent<PlayerController>().takeDamage(10);
+			Debug.Log("Player contact.");
+
+			paused = true;
+			StartCoroutine(Pause());
+		}
+
+	}
 
 }
