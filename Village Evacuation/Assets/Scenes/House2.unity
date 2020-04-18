@@ -323,6 +323,11 @@ PrefabInstance:
       propertyPath: levelName
       value: House 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8109856114176226044, guid: 7cf6403fc28defa49b77ad52c4004662,
+        type: 3}
+      propertyPath: playerCharacter
+      value: 
+      objectReference: {fileID: 714924568}
     - target: {fileID: 8201906895036808908, guid: 7cf6403fc28defa49b77ad52c4004662,
         type: 3}
       propertyPath: m_Name
@@ -1118,6 +1123,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf0dce645180d94f8e56a3d306e74de, type: 3}
+--- !u!114 &714924568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7697340722409786243, guid: bbf0dce645180d94f8e56a3d306e74de,
+    type: 3}
+  m_PrefabInstance: {fileID: 714924567}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ceffb869b9db0646a0e605cc4233fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &727711004
 PrefabInstance:
   m_ObjectHideFlags: 0

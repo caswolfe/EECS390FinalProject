@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     private int maxHealth = 100;
 
+    public PlayableCharacter playerCharacter;
+
     public enum uiState {
         INGAME,
         PAUSE,
@@ -66,6 +68,7 @@ public class UIManager : MonoBehaviour
                 pauseUI.enabled = false;
                 optionsUI.enabled = false;
                 Cursor.visible = false;
+                playerCharacter.Unpause();
                 // TODO: enable player input
                 break;
             case uiState.PAUSE:
@@ -73,6 +76,7 @@ public class UIManager : MonoBehaviour
                 pauseUI.enabled = true;
                 optionsUI.enabled = false;
                 Cursor.visible = true;
+                playerCharacter.Pause();
                 // TODO: disable player input
                 break;
             case uiState.OPTIONS:
@@ -80,6 +84,7 @@ public class UIManager : MonoBehaviour
                 pauseUI.enabled = false;
                 optionsUI.enabled = true;
                 Cursor.visible = true;
+                playerCharacter.Pause();
                 // TODO: disable player input
                 break;
             default:
