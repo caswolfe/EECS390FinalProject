@@ -11,6 +11,7 @@ public class WanderingAI : MonoBehaviour {
 	private bool _alive;
 	private float _multiplier;
 	private bool paused;
+	public PlayerController player;
 
 	void Start() {
 		_alive = true;
@@ -87,8 +88,7 @@ public class WanderingAI : MonoBehaviour {
     {
 		if (collision.gameObject.tag == "Player")
         {
-			GetComponent<PlayerController>().takeDamage(10);
-			Debug.Log("Player contact.");
+			player.takeDamage(10);
 
 			paused = true;
 			StartCoroutine(Pause());

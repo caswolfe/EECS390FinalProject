@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 0.7
   enemyRange: 1
+  player: {fileID: 3879989630613342226, guid: bbf0dce645180d94f8e56a3d306e74de, type: 3}
 --- !u!50 &8702914952422479369
 Rigidbody2D:
   serializedVersion: 4
