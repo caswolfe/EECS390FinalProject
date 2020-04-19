@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     private int lastHealth;
 
+    private int lastFriendlies;
+
     public PlayableCharacter playerCharacter;
 
     public CameraController cameraController;
@@ -68,10 +70,15 @@ public class UIManager : MonoBehaviour
                     break;
             }
         }
-        if (playerController.getHealth() != lastHealth)
+        if (SceneController.Instance.getHealth() != lastHealth)
         {
-            lastHealth = playerController.getHealth();
+            lastHealth = SceneController.Instance.getHealth();
             setHealthDisplay(lastHealth);
+        }
+        if (SceneController.Instance.getFriendlies() != lastFriendlies)
+        {
+            lastFriendlies = SceneController.Instance.getFriendlies();
+            setUnsavedStudentsCount(lastFriendlies);
         }
     }
 

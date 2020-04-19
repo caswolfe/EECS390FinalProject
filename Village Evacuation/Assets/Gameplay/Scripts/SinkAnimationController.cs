@@ -13,7 +13,7 @@ public class SinkAnimationController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "Player" && !used){
-            player.GetComponent<PlayerController>().takeDamage(-10);
+            other.GetComponent<PlayerController>().takeDamage(-10);
             animator.SetBool("On", true);
             used = true;
         }

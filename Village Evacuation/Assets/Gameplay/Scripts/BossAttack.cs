@@ -10,7 +10,11 @@ public class BossAttack : MonoBehaviour
 
     public float bulletSpawnRate;
 
+    public float bulletTravelTime;
+
     private float time = 0;
+
+    private bool damageable = false;
 
     void Start() {
         initBullets(20);
@@ -23,6 +27,12 @@ public class BossAttack : MonoBehaviour
         if (time > bulletSpawnRate) {
             initBullets(20);
             time = 0;
+        }
+        if (time > bulletRotateTime) {
+            damageable = true;
+        }
+        else {
+            damageable = false;
         }
     }
 
@@ -38,7 +48,7 @@ public class BossAttack : MonoBehaviour
         GameObject b = Instantiate(bullet) as GameObject;
         b.transform.parent=transform;
         b.transform.localScale *= transform.localScale.x;
-        b.transform.position = transform.position + new Vector3(transform.localScale.x / 2f,0,+0.1f);
+        b.transform.position = transform.position + new Vector3(transform.localScale.x,0,0.1f);
 
         b.transform.RotateAround(transform.position, new Vector3(0, 0, 1f), Random.Range(0f, 360f)); 
 
@@ -62,7 +72,11 @@ public class BossAttack : MonoBehaviour
             item.transform.parent = null;
             float positionX = item.transform.position.x - transform.position.x;
             float positionY = item.transform.position.y - transform.position.y;
-            item.GetComponent<HitObject>().Shoot(Random.Range(5f,10f), positionX, positionY);
+            item.GetComponent<HitObject>().Shoot(bulletTravelTime, Random.Range(5f,10f), positionX, positionY);
         }
+    }
+
+    public bool isDamageable() {
+        return damageable;
     } 
 }

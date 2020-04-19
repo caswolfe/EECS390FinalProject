@@ -4,33 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private int health;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        health = SceneController.Instance.playerHealth;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (health <= 0) {
-            health = 0;
-        }
-    }
-
     public void takeDamage(int DamageAmount) {
-        health -= DamageAmount;
-        Debug.Log("Players health: " + health);
-    }
-
-    public int getHealth() {
-        return health;
-    }
-
-    public void SavePlayer()
-    {
-        SceneController.Instance.playerHealth = health;
+        if (SceneController.Instance.getHealth() > 0) {
+            SceneController.Instance.playerHealth -= DamageAmount;
+        }
+        else {
+            SceneController.Instance.playerHealth = 0;
+        }
+        
+        if (SceneController.Instance.getHealth() >= 100) {
+            SceneController.Instance.playerHealth = 100;
+        }
     }
 }

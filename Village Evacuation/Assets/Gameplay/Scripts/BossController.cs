@@ -8,11 +8,13 @@ public class BossController : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
 
+    [SerializeField] private GameObject renderer;
+
+    private Color damageableColor = new Color(0.75f, 1, 0);
+
     [SerializeField] int health;
 
     private static int round = 1;
-
-    private bool done = false;
 
     void Start() {
         health = 30;
@@ -29,7 +31,9 @@ public class BossController : MonoBehaviour
                     GameObject b = Instantiate(bossPrefab) as GameObject;    
                     foreach(Transform child in b.transform)
                     {
-                        Destroy(child.gameObject);
+                        if (child.gameObject.tag == "BossBullet") {
+                            Destroy(child.gameObject);
+                        }
                     }
                 }
             } else {
@@ -39,10 +43,20 @@ public class BossController : MonoBehaviour
             Destroy(gameObject);
             round++;
         }
+        if (this.gameObject.GetComponent<BossAttack>().isDamageable()) {
+            Debug.Log("hello");
+            renderer.GetComponent<SpriteRenderer>().color = damageableColor;
+        } else {
+            Debug.Log("hi");
+            renderer.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
+        }
     }
 
     public void takeDamage(int DamageAmount) {
-        health -= DamageAmount;
+        if (this.gameObject.GetComponent<BossAttack>().isDamageable()) {
+            health -= DamageAmount;
+        }
+
         Debug.Log("Boss health: " + health);
     }
 }

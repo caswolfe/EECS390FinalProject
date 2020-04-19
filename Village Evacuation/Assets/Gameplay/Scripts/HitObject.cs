@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class HitObject : MonoBehaviour
 {
-    public float bulletTravelTime;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +25,11 @@ public class HitObject : MonoBehaviour
         }
     }
 
-    public void Shoot(float bulletTravelSpeed, float positionX, float positionY) {
-        StartCoroutine(coroutineShoot(bulletTravelSpeed, positionX, positionY));
+    public void Shoot(float bulletTravelTime, float bulletTravelSpeed, float positionX, float positionY) {
+        StartCoroutine(coroutineShoot(bulletTravelTime, bulletTravelSpeed, positionX, positionY));
     }
 
-    public IEnumerator coroutineShoot(float bulletTravelSpeed, float positionX, float positionY) {
+    public IEnumerator coroutineShoot(float bulletTravelTime, float bulletTravelSpeed, float positionX, float positionY) {
         float time = 0;
         while (time < bulletTravelTime) {
             time += Time.deltaTime;

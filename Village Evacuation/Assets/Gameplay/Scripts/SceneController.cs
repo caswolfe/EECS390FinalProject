@@ -37,7 +37,6 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateHealth();
         time += Time.deltaTime;
         if (time >= 2) {
             Debug.Log("phealth: " + playerHealth + ", firendlies: " + friendlies);
@@ -45,7 +44,11 @@ public class SceneController : MonoBehaviour
         }
     }
 
-    public void updateHealth() {
-        playerHealth = player.GetComponent<PlayerController>().getHealth();
+    public int getHealth() {
+        return playerHealth;
+    }
+
+    public int getFriendlies() {
+        return friendlies;
     }
 }

@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4402239424748820877}
-  - component: {fileID: 3879989630613342226}
   m_Layer: 0
   m_Name: PlayerAndCamera
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,18 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3879989630613342226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110515714024907534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28cc578dc49400d46927286051470879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7697340722354295158
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +139,7 @@ GameObject:
   - component: {fileID: 7697340722409786243}
   - component: {fileID: 7697340722409786252}
   - component: {fileID: 7697340722409786253}
+  - component: {fileID: 2176379888443967184}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -188,6 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accel: 100
   maxSpeed: 100
+  paused: 0
 --- !u!50 &7697340722409786252
 Rigidbody2D:
   serializedVersion: 4
@@ -235,6 +224,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.52510786, y: 0.5925746}
   m_EdgeRadius: 0
+--- !u!114 &2176379888443967184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697340722409786254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28cc578dc49400d46927286051470879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7697340723067363031
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7697340722409786254}
   maxOffset: 2
+  isEnabled: 0
 --- !u!1 &7697340723138822848
 GameObject:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class DirectionalEvent : MonoBehaviour
 
             if (hitObj.tag == "Friendly") {
                 Debug.Log("Student was sent home");
-                hitObj.GetComponent<FriendlyController>().save();
+                hitObj.GetComponent<FriendlyController>().saveFriendly();
             } else if (hitObj.tag == "Enemy") {
                 Debug.Log("Covid-19 was killed");
                 Destroy(hitObj);
