@@ -3,7 +3,19 @@ guid: 43854ed3c8db9ed42ae7f67a4425ff42
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - inGameUI: {instanceID: 0}
+  - pauseUI: {instanceID: 0}
+  - optionsUI: {instanceID: 0}
+  - healthBarIndicator: {instanceID: 0}
+  - unsavedStudentsNumber: {instanceID: 0}
+  - levelText: {instanceID: 0}
+  - volumeSlider: {instanceID: 0}
+  - playerCharacter: {instanceID: 0}
+  - cameraController: {instanceID: 0}
+  - playerController: {fileID: 3879989630613342226, guid: bbf0dce645180d94f8e56a3d306e74de,
+      type: 3}
+  - looker: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

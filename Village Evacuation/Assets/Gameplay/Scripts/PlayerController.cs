@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private static int health;
+    private int health;
 
     // Start is called before the first frame update
     void Start()

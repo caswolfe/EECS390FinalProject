@@ -964,6 +964,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333971b957242da4a82c37600ec26c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &714924571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3879989630613342226, guid: bbf0dce645180d94f8e56a3d306e74de,
+    type: 3}
+  m_PrefabInstance: {fileID: 714924567}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28cc578dc49400d46927286051470879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &721101182
 GameObject:
   m_ObjectHideFlags: 0
@@ -4542,6 +4554,11 @@ PrefabInstance:
       propertyPath: looker
       value: 
       objectReference: {fileID: 714924569}
+    - target: {fileID: 8109856114176226044, guid: 7cf6403fc28defa49b77ad52c4004662,
+        type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 714924571}
     - target: {fileID: 8201906895036808908, guid: 7cf6403fc28defa49b77ad52c4004662,
         type: 3}
       propertyPath: m_Name

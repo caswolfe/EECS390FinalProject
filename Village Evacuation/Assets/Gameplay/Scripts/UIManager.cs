@@ -27,9 +27,13 @@ public class UIManager : MonoBehaviour
 
     private int maxHealth = 100;
 
+    private int lastHealth;
+
     public PlayableCharacter playerCharacter;
 
     public CameraController cameraController;
+
+    public PlayerController playerController;
 
     public lookAtCamera looker;
 
@@ -43,6 +47,7 @@ public class UIManager : MonoBehaviour
     {
         this.setUIState(uiState.INGAME);
         this.levelText.text = levelName;
+        lastHealth = maxHealth;
     }
 
     void Update()
@@ -62,6 +67,11 @@ public class UIManager : MonoBehaviour
                     Debug.LogWarning("currentState undefined in UIManager");
                     break;
             }
+        }
+        if (playerController.getHealth() != lastHealth)
+        {
+            lastHealth = playerController.getHealth();
+            setHealthDisplay(lastHealth);
         }
     }
 
