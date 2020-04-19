@@ -29,6 +29,10 @@ public class UIManager : MonoBehaviour
 
     public PlayableCharacter playerCharacter;
 
+    public CameraController cameraController;
+
+    public lookAtCamera looker;
+
     public enum uiState {
         INGAME,
         PAUSE,
@@ -69,7 +73,8 @@ public class UIManager : MonoBehaviour
                 optionsUI.enabled = false;
                 Cursor.visible = false;
                 playerCharacter.Unpause();
-                // TODO: enable player input
+                cameraController.setIsEnabled(true);
+                looker.setIsEnabled(true);
                 break;
             case uiState.PAUSE:
                 inGameUI.enabled = false;
@@ -77,7 +82,8 @@ public class UIManager : MonoBehaviour
                 optionsUI.enabled = false;
                 Cursor.visible = true;
                 playerCharacter.Pause();
-                // TODO: disable player input
+                cameraController.setIsEnabled(false);
+                looker.setIsEnabled(false);
                 break;
             case uiState.OPTIONS:
                 inGameUI.enabled = false;
@@ -85,7 +91,8 @@ public class UIManager : MonoBehaviour
                 optionsUI.enabled = true;
                 Cursor.visible = true;
                 playerCharacter.Pause();
-                // TODO: disable player input
+                cameraController.setIsEnabled(false);
+                looker.setIsEnabled(false);
                 break;
             default:
                 this.setUIState(uiState.INGAME);
