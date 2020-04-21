@@ -11,7 +11,7 @@ public class WanderingAI : MonoBehaviour {
 	private bool _alive;
 	private float _multiplier;
 	private bool paused;
-	public PlayerController player;
+	private PlayerController player;
 
 	void Start() {
 		_alive = true;

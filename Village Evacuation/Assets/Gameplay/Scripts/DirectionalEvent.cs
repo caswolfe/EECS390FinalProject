@@ -14,17 +14,23 @@ public class DirectionalEvent : MonoBehaviour
 
     public SpriteRenderer firePtRenderer;
 
+    private GameObject playerObject;
+
+    private PlayableCharacter playerScript;
+
 
     void Start()
     {
         playerSpriteRenderer.sprite = sprites[0];
         firePtRenderer.sprite = null;
+        playerObject = GameObject.Find("Player");
+        playerScript = playerObject.GetComponent<PlayableCharacter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !playerScript.paused)
         {
             playerSpriteRenderer.sprite = sprites[1];
             StartCoroutine(delayResetSprite());
