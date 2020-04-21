@@ -20,10 +20,12 @@ public class SceneController : MonoBehaviour
         {
             Destroy (gameObject);
         }
+        volume = 0.25f;
     }
 
     public int playerHealth;
     public int friendlies;
+    public float volume;
 
     [SerializeField] private GameObject player;
 

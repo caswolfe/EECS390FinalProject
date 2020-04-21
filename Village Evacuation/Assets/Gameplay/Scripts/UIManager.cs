@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
+    [Header("Options")]
     public string levelName = "FILL LVL NAME";
 
+    [Space]
+    [Header("UI Components")]
     public Canvas inGameUI;
 
     public Canvas pauseUI;
@@ -25,12 +28,8 @@ public class UIManager : MonoBehaviour
 
     private uiState currentState;
 
-    private int maxHealth = 100;
-
-    private int lastHealth;
-
-    private int lastFriendlies;
-
+    [Space]
+    [Header("Game Components")]
     public PlayableCharacter playerCharacter;
 
     public CameraController cameraController;
@@ -38,6 +37,18 @@ public class UIManager : MonoBehaviour
     public PlayerController playerController;
 
     public lookAtCamera looker;
+
+    public AudioSource[] audioSources;
+
+    /*
+     *  private vars
+     */
+
+    private int maxHealth = 100;
+
+    private int lastHealth;
+
+    private int lastFriendlies;
 
     public enum uiState {
         INGAME,
@@ -50,6 +61,9 @@ public class UIManager : MonoBehaviour
         this.setUIState(uiState.INGAME);
         this.levelText.text = levelName;
         lastHealth = maxHealth;
+        Debug.Log("starting volume:" + SceneController.Instance.volume);
+        this.volumeSlider.SetValueWithoutNotify(SceneController.Instance.volume);
+        setVolume(SceneController.Instance.volume);
     }
 
     void Update()
@@ -88,7 +102,7 @@ public class UIManager : MonoBehaviour
                 inGameUI.enabled = true;
                 pauseUI.enabled = false;
                 optionsUI.enabled = false;
-                Cursor.visible = false;
+                // Cursor.visible = false;
                 playerCharacter.Unpause();
                 cameraController.setIsEnabled(true);
                 looker.setIsEnabled(true);
@@ -131,6 +145,12 @@ public class UIManager : MonoBehaviour
         levelText.text = level;
     }
 
+    public void setVolume(float level){
+        foreach (AudioSource audioSource in audioSources){
+            audioSource.volume = level;
+        }
+    }
+
     /*
      * Action Events
      */
@@ -156,7 +176,9 @@ public class UIManager : MonoBehaviour
     }
 
     public void onVolumeLevelChange(){
-        Debug.Log("volume level now " + volumeSlider.value);
+        // Debug.Log("volume level now " + volumeSlider.value);
+        SceneController.Instance.volume = volumeSlider.value;
+        this.setVolume(volumeSlider.value);
     }
 
 }
