@@ -92,12 +92,11 @@ public class WanderingAI : MonoBehaviour {
     {
 		if (collision.gameObject.tag == "Player")
         {
-			player.takeDamage(10);
+			playerObject.GetComponent<PlayerController>().takeDamage(10);
 
 			paused = true;
 			//StartCoroutine(Pause());
 		}
-
 	}
 
 }
