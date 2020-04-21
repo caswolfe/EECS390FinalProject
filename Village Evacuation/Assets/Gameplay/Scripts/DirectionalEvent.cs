@@ -27,7 +27,6 @@ public class DirectionalEvent : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             playerSpriteRenderer.sprite = sprites[1];
-            firePtRenderer.sprite = sprites[2];
             StartCoroutine(delayResetSprite());
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up * 10);
@@ -42,6 +41,7 @@ public class DirectionalEvent : MonoBehaviour
                 Debug.Log("Student was sent home");
                 hitObj.GetComponent<FriendlyController>().saveFriendly();
             } else if (hitObj.tag == "Enemy" && Vector3.Distance(hit.transform.position, transform.position) < 2) {
+                firePtRenderer.sprite = sprites[2];
                 Debug.Log("Covid-19 was killed");
                 Destroy(hitObj);
             } else if (hitObj.tag == "Boss") {
