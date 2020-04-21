@@ -524,6 +524,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7697340722409786243, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697340722409786243, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: paused
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697340722409786243, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9be332b22b4d64449a51b69ee919aa7b,
+        type: 3}
+    - target: {fileID: 7697340722409786243, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41aa0ab31de123e4e9d4a43486cf1b77,
+        type: 3}
+    - target: {fileID: 7697340722409786243, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 2040614196}
+    - target: {fileID: 7697340723138822853, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697340723138822853, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9be332b22b4d64449a51b69ee919aa7b,
+        type: 3}
+    - target: {fileID: 7697340723138822853, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41aa0ab31de123e4e9d4a43486cf1b77,
+        type: 3}
+    - target: {fileID: 7697340723138822853, guid: bbf0dce645180d94f8e56a3d306e74de,
+        type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 942bbc4c8d534aa459665437c1c7a3a4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf0dce645180d94f8e56a3d306e74de, type: 3}
 --- !u!114 &331325394 stripped
