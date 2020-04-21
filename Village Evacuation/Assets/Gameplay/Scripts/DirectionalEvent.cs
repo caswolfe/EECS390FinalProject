@@ -36,12 +36,12 @@ public class DirectionalEvent : MonoBehaviour
             Vector3 mouseVector = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             Debug.DrawLine(transform.position, mouseVector * 10, Color.green);
 
-            if (hitObj.tag == "Friendly") {
+            if (hitObj.tag == "Friendly" && Vector3.Distance(hit.transform.position, transform.position) < 2) {
                 playerSpriteRenderer.sprite = sprites[0];
                 firePtRenderer.sprite = null;
                 Debug.Log("Student was sent home");
                 hitObj.GetComponent<FriendlyController>().saveFriendly();
-            } else if (hitObj.tag == "Enemy") {
+            } else if (hitObj.tag == "Enemy" && Vector3.Distance(hit.transform.position, transform.position) < 2) {
                 Debug.Log("Covid-19 was killed");
                 Destroy(hitObj);
             } else if (hitObj.tag == "Boss") {
