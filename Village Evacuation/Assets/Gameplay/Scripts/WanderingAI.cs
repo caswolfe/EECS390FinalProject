@@ -3,7 +3,7 @@ using System.Collections;
 
 // Modified from ch07 unity package (originally for zombies)
 public class WanderingAI : MonoBehaviour {
-	public float baseSpeed = 0.5f;
+	public float baseSpeed = 0.4f;
 	public float enemyRange = 1f;
 
 	private float speed;
@@ -48,7 +48,7 @@ public class WanderingAI : MonoBehaviour {
 			float range = diff.magnitude;
 
 			if (range > 5.0f) {
-				_multiplier = 0.0f;
+				_multiplier = 0.01f;
 			}
 
 			if (range > 5.0f && range <= 9.0f) { 
@@ -56,7 +56,7 @@ public class WanderingAI : MonoBehaviour {
 			}
 
 			if (range <= 9.0f) { 
-				_multiplier = 10.0f;
+				_multiplier = 11.0f;
 			}
 
 			float largeVal = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
@@ -66,7 +66,6 @@ public class WanderingAI : MonoBehaviour {
 			Vector3 difference = playerObject.transform.position - transform.position;
 			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
-
 		}
 	}
 
