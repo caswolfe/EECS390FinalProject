@@ -38,13 +38,14 @@ public class WanderingAI : MonoBehaviour {
 
 
 	void LateUpdate() {
+		Vector3 diff = playerObject.transform.position - transform.position;
 		if (_alive && !paused) {
 
 			//if very far away zombie speed = 0: idle animation
 			//if somewhat close zombie speed = walking speed: walking animation
 			//if near zombie speed = 8.0*walking speed:running animation
 
-			Vector3 diff = playerObject.transform.position - transform.position;
+
 			float range = diff.magnitude;
 
 			if (range > 5.0f) {
@@ -67,6 +68,10 @@ public class WanderingAI : MonoBehaviour {
 			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
 		}
+		if (paused && Vector3.Distance(playerObject.transform.position, transform.position) > 2f)
+        {
+			paused = false;
+        }
 	}
 
 	public void SetAlive(bool alive) {
@@ -90,7 +95,7 @@ public class WanderingAI : MonoBehaviour {
 			player.takeDamage(10);
 
 			paused = true;
-			StartCoroutine(Pause());
+			//StartCoroutine(Pause());
 		}
 
 	}
