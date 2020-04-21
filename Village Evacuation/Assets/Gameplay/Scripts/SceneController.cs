@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -43,6 +44,9 @@ public class SceneController : MonoBehaviour
         if (time >= 2) {
             Debug.Log("phealth: " + playerHealth + ", firendlies: " + friendlies);
             time = 0;
+        }
+        if(Input.GetKeyDown("p")){
+            SceneManager.LoadScene("Boss Fight");
         }
     }
 
