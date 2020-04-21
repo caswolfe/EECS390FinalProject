@@ -7,7 +7,6 @@ public class PlayableCharacter : MonoBehaviour
     public float accel;
     public float maxSpeed;
     public bool paused;
-    // I suggest playing around with this value. We want to ease the character into motion rather than a rigid feel.
 
     private Rigidbody2D rb;
 
