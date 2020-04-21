@@ -40,7 +40,7 @@ public class DirectionalEvent : MonoBehaviour
                 firePtRenderer.sprite = null;
                 Debug.Log("Student was sent home");
                 hitObj.GetComponent<FriendlyController>().saveFriendly();
-            } else if (hitObj.tag == "Enemy" && Vector3.Distance(hit.transform.position, transform.position) < 2) {
+            } else if (hitObj.tag == "Enemy" && Vector3.Distance(hit.transform.position, transform.position) < 4) {
                 firePtRenderer.sprite = sprites[2];
                 Debug.Log("Covid-19 was killed");
                 Destroy(hitObj);
