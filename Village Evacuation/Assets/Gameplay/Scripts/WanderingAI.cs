@@ -3,7 +3,7 @@ using System.Collections;
 
 // Modified from ch07 unity package (originally for zombies)
 public class WanderingAI : MonoBehaviour {
-	public float baseSpeed = 0.4f;
+	public float baseSpeed;
 	public float enemyRange = 1f;
 
 	private float speed;
@@ -12,10 +12,12 @@ public class WanderingAI : MonoBehaviour {
 	private float _multiplier;
 	private bool paused;
 	private PlayerController player;
+	private Rigidbody2D rb;
 
 	void Start() {
 		_alive = true;
 		paused = false;
+		rb = GetComponent<Rigidbody2D>();
 		
 		playerObject = GameObject.Find("Player");
 		speed = baseSpeed;
@@ -52,17 +54,20 @@ public class WanderingAI : MonoBehaviour {
 				_multiplier = 0.01f;
 			}
 
-			if (range > 5.0f && range <= 9.0f) { 
+			if (range > 5.0f && range <= 12.0f) { 
 				_multiplier = 1.0f;
 			}
 
-			if (range <= 9.0f) { 
+			if (range <= 12.0f) { 
 				_multiplier = 11.0f;
 			}
 
 			float largeVal = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
 			// This shouldn't be diff...this should be something directed towards diff...
-			transform.Translate(diff.x / largeVal * Time.deltaTime * speed * _multiplier, diff.y / largeVal * Time.deltaTime * speed * _multiplier, 0, Space.World);
+			//transform.Translate(diff.x / largeVal * Time.deltaTime * speed * _multiplier, diff.y / largeVal * Time.deltaTime * speed * _multiplier, 0, Space.World);
+			rb.AddForce(new Vector2(diff.x / largeVal * speed * _multiplier,
+									diff.y / largeVal * speed * _multiplier),
+						ForceMode2D.Force);
 
 			Vector3 difference = playerObject.transform.position - transform.position;
 			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

@@ -102,9 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c64a746be7b4ed1bac40e084e1ea6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 0.7
+  baseSpeed: 2
   enemyRange: 1
-  player: {fileID: 3879989630613342226, guid: bbf0dce645180d94f8e56a3d306e74de, type: 3}
 --- !u!50 &8702914952422479369
 Rigidbody2D:
   serializedVersion: 4
@@ -118,7 +117,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 12
+  m_LinearDrag: 9
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
