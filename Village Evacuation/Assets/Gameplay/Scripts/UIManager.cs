@@ -184,7 +184,7 @@ public class UIManager : MonoBehaviour
     }
 
     public void onVolumeLevelChange(){
-        // Debug.Log("volume level now " + volumeSlider.value);
+        Debug.Log("volume level now " + volumeSlider.value);
         SceneController.Instance.volume = volumeSlider.value;
         this.setVolume(volumeSlider.value);
     }

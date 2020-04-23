@@ -27,10 +27,7 @@ public class SceneController : MonoBehaviour
     public int playerHealth;
     public int friendlies;
     public float volume;
-
-    [SerializeField] private GameObject player;
-
-    private float time;
+    private bool onLose = false;
 
     void Start() {
         playerHealth = 100;
@@ -40,14 +37,13 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if (time >= 2) {
-            Debug.Log("phealth: " + playerHealth + ", firendlies: " + friendlies);
-            time = 0;
-        }
         if(Input.GetKeyDown("p")){
             SceneManager.LoadScene("Boss Fight");
         }
+        /*if(playerHealth <= 0 && !onLose) {
+            SceneManager.LoadScene("Lose");
+            onLose = true;
+        }*/
     }
 
     public int getHealth() {
@@ -56,5 +52,9 @@ public class SceneController : MonoBehaviour
 
     public int getFriendlies() {
         return friendlies;
+    }
+
+    public void loadWin() {
+        SceneManager.LoadScene("Win");
     }
 }

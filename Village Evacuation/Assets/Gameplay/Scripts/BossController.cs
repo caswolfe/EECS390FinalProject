@@ -44,11 +44,13 @@ public class BossController : MonoBehaviour
             round++;
         }
         if (this.gameObject.GetComponent<BossAttack>().isDamageable()) {
-            Debug.Log("hello");
             renderer.GetComponent<SpriteRenderer>().color = damageableColor;
         } else {
-            Debug.Log("hi");
             renderer.GetComponent<SpriteRenderer>().color = new Color(1,1,1);
+        }
+
+        if (round >= 8) {
+            SceneController.Instance.loadWin();
         }
     }
 
