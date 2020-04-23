@@ -40,10 +40,10 @@ public class SceneController : MonoBehaviour
         if(Input.GetKeyDown("p")){
             SceneManager.LoadScene("Boss Fight");
         }
-        /*if(playerHealth <= 0 && !onLose) {
+        if(playerHealth <= 0 && !onLose) {
             SceneManager.LoadScene("Lose");
             onLose = true;
-        }*/
+        }
     }
 
     public int getHealth() {
