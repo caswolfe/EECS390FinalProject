@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     [Header("Options")]
     public string levelName = "FILL LVL NAME";
 
+    public bool showUnsavedStudents = true;
+
     [Space]
     [Header("UI Components")]
     public Canvas inGameUI;
@@ -19,6 +21,8 @@ public class UIManager : MonoBehaviour
     public Canvas optionsUI;
 
     public Image healthBarIndicator;
+
+    public Text unsavedStudentsLabel;
 
     public Text unsavedStudentsNumber;
 
@@ -64,6 +68,10 @@ public class UIManager : MonoBehaviour
         Debug.Log("starting volume:" + SceneController.Instance.volume);
         this.volumeSlider.SetValueWithoutNotify(SceneController.Instance.volume);
         setVolume(SceneController.Instance.volume);
+        if(!this.showUnsavedStudents){
+            this.unsavedStudentsLabel.enabled = false;
+            this.unsavedStudentsNumber.enabled = false;
+        }
     }
 
     void Update()

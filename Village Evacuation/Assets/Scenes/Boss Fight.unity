@@ -8375,6 +8375,11 @@ PrefabInstance:
       propertyPath: audioSources.Array.data[0]
       value: 
       objectReference: {fileID: 444745342}
+    - target: {fileID: 8109856114176226044, guid: 7cf6403fc28defa49b77ad52c4004662,
+        type: 3}
+      propertyPath: showUnsavedStudents
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8201906895036808908, guid: 7cf6403fc28defa49b77ad52c4004662,
         type: 3}
       propertyPath: m_Name
