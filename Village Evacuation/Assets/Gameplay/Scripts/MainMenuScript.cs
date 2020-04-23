@@ -15,7 +15,7 @@ public class MainMenuScript : MonoBehaviour
 
     void start(){
         Debug.Log("starting volume (main menu) :" + SceneController.Instance.volume);
-        this.optionsButton.interactable = false;
+        this.optionsButton.interactable = true;
         this.volumeSlider.SetValueWithoutNotify(SceneController.Instance.volume);
         this.volumeText.gameObject.SetActive(false);
         this.volumeSlider.gameObject.SetActive(false);
