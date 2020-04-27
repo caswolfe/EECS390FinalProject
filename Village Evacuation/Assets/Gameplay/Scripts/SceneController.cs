@@ -37,9 +37,10 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /* Obviously just for debug purposes:
         if(Input.GetKeyDown("p")){
             SceneManager.LoadScene("Boss Fight");
-        }
+        }*/
         if(playerHealth <= 0 && !onLose) {
             SceneManager.LoadScene("Lose");
             onLose = true;

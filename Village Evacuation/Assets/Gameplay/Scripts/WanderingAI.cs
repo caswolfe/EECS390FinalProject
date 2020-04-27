@@ -29,10 +29,10 @@ public class WanderingAI : MonoBehaviour {
 			_multiplier = 0.0f;
 		}
 		if (range > 6.0f && range <= 8.0f) { 
-			_multiplier = 3.0f;
+			_multiplier = 1.0f;
 		}
 		if (range <= 6.0f) { 
-			_multiplier = 8.0f;
+			_multiplier = 2.0f;
 
 		}
 
