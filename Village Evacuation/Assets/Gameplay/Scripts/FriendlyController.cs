@@ -6,10 +6,9 @@ public class FriendlyController : MonoBehaviour
 {
     // Label sound effects as they get added.
     // index 0 and index 1 are "thanks" sound effects
-    public AudioClip[] soundEffects;
 
     void Start() {
-        SceneController.Instance.friendlies++;
+        SceneController.Instance.friendlies++;   
     }
 
     public void saveFriendly() {

@@ -189,4 +189,8 @@ public class UIManager : MonoBehaviour
         this.setVolume(volumeSlider.value);
     }
 
+    public void onPlay(){
+        SceneManager.LoadScene("House1");
+    }
+
 }
