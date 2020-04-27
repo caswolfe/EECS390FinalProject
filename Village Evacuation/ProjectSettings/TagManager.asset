@@ -10,6 +10,7 @@ TagManager:
   - Boss
   - Wall
   - BossBullet
+  - Spray
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: TOP
+    uniqueID: 3513586117
+    locked: 0
+  - name: Spray
+    uniqueID: 582705797
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
