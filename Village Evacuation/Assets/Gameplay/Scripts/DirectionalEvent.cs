@@ -62,6 +62,7 @@ public class DirectionalEvent : MonoBehaviour
                 audio.Play();
             } else if (hitObj.tag == "Boss") {
                 playerSpriteRenderer.sprite = sprites[1];
+                firePtRenderer.sprite = sprites[2];
                 /* this is how we should deal with enemies and entities getting hit.
                 Enemies and NPCs should have a script that has a function that 
                 says how to react to a hit and then here all we do is call that function */

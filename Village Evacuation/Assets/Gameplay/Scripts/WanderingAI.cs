@@ -31,17 +31,17 @@ public class WanderingAI : MonoBehaviour {
 			_multiplier = 0.0f;
 		}
 		if (range > 6.0f && range <= 8.0f) { 
-			_multiplier = 3.0f;
+			_multiplier = 1.0f;
 		}
 		if (range <= 6.0f) { 
-			_multiplier = 8.0f;
+			_multiplier = 10.0f;
 
 		}
 
 	}
 
 
-	void LateUpdate() {
+	void FixedUpdate() {
 		if (!stop) {
 			Vector3 diff = playerObject.transform.position - transform.position;
 			if (_alive && !paused) {
@@ -62,7 +62,7 @@ public class WanderingAI : MonoBehaviour {
 				}
 
 				if (range <= 12.0f) { 
-					_multiplier = 11.0f;
+					_multiplier = 10.0f;
 				}
 
 				float largeVal = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
