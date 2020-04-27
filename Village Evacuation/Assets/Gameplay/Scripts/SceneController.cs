@@ -10,7 +10,7 @@ public class SceneController : MonoBehaviour
         set;
     }
 
-    void Awake ()   
+    void Awake ()
     {
         if (Instance == null)
         {
@@ -27,7 +27,6 @@ public class SceneController : MonoBehaviour
     public int playerHealth;
     public int friendlies;
     public float volume;
-    private bool onLose = false;
 
     void Start() {
         playerHealth = 100;
@@ -44,6 +43,7 @@ public class SceneController : MonoBehaviour
         if(playerHealth <= 0 && !onLose) {
             SceneManager.LoadScene("Lose");
             onLose = true;
+
         }
     }
 
@@ -57,5 +57,9 @@ public class SceneController : MonoBehaviour
 
     public void loadWin() {
         SceneManager.LoadScene("Win");
+    }
+
+    public void loadLose() {
+        SceneManager.LoadScene("Lose");
     }
 }
