@@ -33,6 +33,8 @@ public class MainMenuScript : MonoBehaviour
     }
 
     public void onPlay(){
+        SceneController.Instance.playerHealth = 100;
+        SceneController.Instance.friendlies = 0;
         SceneManager.LoadScene("House1");
     }
 
