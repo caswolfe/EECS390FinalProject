@@ -7,7 +7,7 @@ Group members: Alexander Sfakianos (aks164), Chad Wolfe (csw52), Andrew Szabo (a
 `A` to move `LEFT`  
 `S` to move `DOWN`  
 `D` to move `RIGHT`  
-`MOUSE1` to `Interact` with NPCs, Doors, and other interactable objects  
+`MOUSE1` to `Interact` with NPCs, Doors, and blast COVID-19 viruses away!    
 
 ## Characters
 
