@@ -27,7 +27,6 @@ public class SceneController : MonoBehaviour
     public int playerHealth;
     public int friendlies;
     public float volume;
-    private bool onLose = false;
 
     void Start() {
         playerHealth = 100;
@@ -39,10 +38,6 @@ public class SceneController : MonoBehaviour
     {
         if(Input.GetKeyDown("p")){
             SceneManager.LoadScene("Boss Fight");
-        }
-        if(playerHealth <= 0 && !onLose) {
-            SceneManager.LoadScene("Lose");
-            onLose = true;
         }
     }
 
@@ -56,5 +51,9 @@ public class SceneController : MonoBehaviour
 
     public void loadWin() {
         SceneManager.LoadScene("Win");
+    }
+
+    public void loadLose() {
+        SceneManager.LoadScene("Lose");
     }
 }

@@ -23,8 +23,9 @@ public class PlayerController : MonoBehaviour
             audio.Play();
         }
         SceneController.Instance.playerHealth -= DamageAmount;
-        if (SceneController.Instance.getHealth() < 0) {
+        if (SceneController.Instance.getHealth() <= 0) {
             SceneController.Instance.playerHealth = 0;
+            SceneController.Instance.loadLose();
         }
         else if (SceneController.Instance.getHealth() > 100) {
             SceneController.Instance.playerHealth = 100;
