@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     [Header("Game Components")]
     public PlayableCharacter playerCharacter;
 
+    public GameObject enemy;
+
     public CameraController cameraController;
 
     public PlayerController playerController;
@@ -112,6 +114,8 @@ public class UIManager : MonoBehaviour
                 optionsUI.enabled = false;
                 // Cursor.visible = false;
                 playerCharacter.Unpause();
+                enemy.GetComponent<WanderingAI>().Unstop();
+                UnpauseBosses();
                 cameraController.setIsEnabled(true);
                 looker.setIsEnabled(true);
                 break;
@@ -121,6 +125,8 @@ public class UIManager : MonoBehaviour
                 optionsUI.enabled = false;
                 Cursor.visible = true;
                 playerCharacter.Pause();
+                enemy.GetComponent<WanderingAI>().Stop();
+                PauseBosses();
                 cameraController.setIsEnabled(false);
                 looker.setIsEnabled(false);
                 break;
@@ -130,6 +136,8 @@ public class UIManager : MonoBehaviour
                 optionsUI.enabled = true;
                 Cursor.visible = true;
                 playerCharacter.Pause();
+                enemy.GetComponent<WanderingAI>().Stop();
+                PauseBosses();
                 cameraController.setIsEnabled(false);
                 looker.setIsEnabled(false);
                 break;
@@ -156,6 +164,30 @@ public class UIManager : MonoBehaviour
     public void setVolume(float level){
         foreach (AudioSource audioSource in audioSources){
             audioSource.volume = level;
+        }
+    }
+
+    // unpauses boss and bossbullets
+    private void UnpauseBosses() {
+        var allBosses = GameObject.FindGameObjectsWithTag("Boss");
+        var allBullets = GameObject.FindGameObjectsWithTag("BossBullet");
+        foreach (var boss in allBosses) {
+            boss.gameObject.GetComponent<BossController>().Unpause();
+        }
+        foreach (var bullet in allBullets) {
+            bullet.gameObject.GetComponent<HitObject>().Unpause();
+        }
+    }
+
+    // pauses boss and bossbullets
+    private void PauseBosses() {
+        var allBosses = GameObject.FindGameObjectsWithTag("Boss");
+        var allBullets = GameObject.FindGameObjectsWithTag("BossBullet");
+        foreach (var boss in allBosses) {
+            boss.gameObject.GetComponent<BossController>().Pause();
+        }
+        foreach (var bullet in allBullets) {
+            bullet.gameObject.GetComponent<HitObject>().Pause();
         }
     }
 

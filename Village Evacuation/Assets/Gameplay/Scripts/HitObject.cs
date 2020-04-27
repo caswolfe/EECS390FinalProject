@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class HitObject : MonoBehaviour
 {
+
+    public bool paused;
     // Start is called before the first frame update
     void Start()
     {
-        
+        paused = false;
     }
 
     // Update is called once per frame
@@ -32,9 +34,11 @@ public class HitObject : MonoBehaviour
     public IEnumerator coroutineShoot(float bulletTravelTime, float bulletTravelSpeed, float positionX, float positionY) {
         float time = 0;
         while (time < bulletTravelTime) {
-            time += Time.deltaTime;
-            if (this.gameObject != null) {
-                transform.position += new Vector3(Time.deltaTime * positionX * bulletTravelSpeed, Time.deltaTime * positionY * bulletTravelSpeed, 0);
+            if(!paused) {
+                time += Time.deltaTime;
+                if (this.gameObject != null) {
+                    transform.position += new Vector3(Time.deltaTime * positionX * bulletTravelSpeed, Time.deltaTime * positionY * bulletTravelSpeed, 0);
+                }
             }
             yield return null;
         }
@@ -42,5 +46,13 @@ public class HitObject : MonoBehaviour
         if (this.gameObject != null) {
             Destroy(gameObject);
         }
+    }
+
+    public void Pause() {
+        paused = true;
+    }
+
+    public void Unpause() {
+        paused = false;
     }
 }

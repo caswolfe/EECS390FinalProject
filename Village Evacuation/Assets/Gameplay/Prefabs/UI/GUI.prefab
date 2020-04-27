@@ -787,6 +787,7 @@ MonoBehaviour:
   levelText: {fileID: 493756370016819952}
   volumeSlider: {fileID: 6762862857406819803}
   playerCharacter: {fileID: 0}
+  enemy: {fileID: 5018556151073285976, guid: 23c41af2b98545b4dab92e0a29e19051, type: 3}
   cameraController: {fileID: 0}
   playerController: {fileID: 0}
   looker: {fileID: 0}

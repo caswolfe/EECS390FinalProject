@@ -23,7 +23,6 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         // update should do a health check like this and react accordingly
         if (health <= 0) {
             if (round < 4) {
@@ -60,5 +59,17 @@ public class BossController : MonoBehaviour
         }
 
         Debug.Log("Boss health: " + health);
+    }
+
+    public void Pause() {
+        gameObject.GetComponent<BossAttack>().enabled = false;
+        gameObject.GetComponent<BossAttack>().Pause();
+        gameObject.GetComponent<BossMovement>().enabled = false;
+    }
+
+    public void Unpause() {
+        gameObject.GetComponent<BossAttack>().enabled = true;
+        gameObject.GetComponent<BossAttack>().Unpause();
+        gameObject.GetComponent<BossMovement>().enabled = true;
     }
 }

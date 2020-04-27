@@ -13,10 +13,12 @@ public class WanderingAI : MonoBehaviour {
 	private bool paused;
 	private PlayerController player;
 	private Rigidbody2D rb;
+	public static bool stop;
 
 	void Start() {
 		_alive = true;
 		paused = false;
+		stop = false;
 		rb = GetComponent<Rigidbody2D>();
 		
 		playerObject = GameObject.Find("Player");
@@ -40,43 +42,45 @@ public class WanderingAI : MonoBehaviour {
 
 
 	void LateUpdate() {
-		Vector3 diff = playerObject.transform.position - transform.position;
-		if (_alive && !paused) {
+		if (!stop) {
+			Vector3 diff = playerObject.transform.position - transform.position;
+			if (_alive && !paused) {
 
-			//if very far away zombie speed = 0: idle animation
-			//if somewhat close zombie speed = walking speed: walking animation
-			//if near zombie speed = 8.0*walking speed:running animation
+				//if very far away zombie speed = 0: idle animation
+				//if somewhat close zombie speed = walking speed: walking animation
+				//if near zombie speed = 8.0*walking speed:running animation
 
 
-			float range = diff.magnitude;
+				float range = diff.magnitude;
 
-			if (range > 5.0f) {
-				_multiplier = 0.01f;
+				if (range > 5.0f) {
+					_multiplier = 0.01f;
+				}
+
+				if (range > 5.0f && range <= 12.0f) { 
+					_multiplier = 1.0f;
+				}
+
+				if (range <= 12.0f) { 
+					_multiplier = 11.0f;
+				}
+
+				float largeVal = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
+				// This shouldn't be diff...this should be something directed towards diff...
+				//transform.Translate(diff.x / largeVal * Time.deltaTime * speed * _multiplier, diff.y / largeVal * Time.deltaTime * speed * _multiplier, 0, Space.World);
+				rb.AddForce(new Vector2(diff.x / largeVal * speed * _multiplier,
+										diff.y / largeVal * speed * _multiplier),
+							ForceMode2D.Force);
+
+				Vector3 difference = playerObject.transform.position - transform.position;
+				float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+				transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
 			}
-
-			if (range > 5.0f && range <= 12.0f) { 
-				_multiplier = 1.0f;
+			if (paused && Vector3.Distance(playerObject.transform.position, transform.position) > 2f)
+			{
+				paused = false;
 			}
-
-			if (range <= 12.0f) { 
-				_multiplier = 11.0f;
-			}
-
-			float largeVal = Mathf.Max(Mathf.Abs(diff.x), Mathf.Abs(diff.y));
-			// This shouldn't be diff...this should be something directed towards diff...
-			//transform.Translate(diff.x / largeVal * Time.deltaTime * speed * _multiplier, diff.y / largeVal * Time.deltaTime * speed * _multiplier, 0, Space.World);
-			rb.AddForce(new Vector2(diff.x / largeVal * speed * _multiplier,
-									diff.y / largeVal * speed * _multiplier),
-						ForceMode2D.Force);
-
-			Vector3 difference = playerObject.transform.position - transform.position;
-			float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
 		}
-		if (paused && Vector3.Distance(playerObject.transform.position, transform.position) > 2f)
-        {
-			paused = false;
-        }
 	}
 
 	public void SetAlive(bool alive) {
@@ -102,6 +106,14 @@ public class WanderingAI : MonoBehaviour {
 			paused = true;
 			//StartCoroutine(Pause());
 		}
+	}
+
+	public void Stop() {
+		stop = true;
+	}
+
+	public void Unstop() {
+		stop = false;
 	}
 
 }

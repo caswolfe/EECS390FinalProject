@@ -15,9 +15,12 @@ public class BossAttack : MonoBehaviour
     private float time = 0;
 
     private bool damageable = false;
+    
+    public static bool paused;
 
     void Start() {
         initBullets(20);
+        paused = false;
     }
 
     // Update is called once per frame
@@ -59,9 +62,11 @@ public class BossAttack : MonoBehaviour
     private IEnumerator RotateForTime(GameObject item, float speed) {
         float time = 0;
         while ( time < bulletRotateTime) {
-            time += Time.deltaTime;
-            if (item != null) {
-                item.transform.RotateAround(transform.position, new Vector3(0, 0, 1f), speed); 
+            if (!paused) {
+                time += Time.deltaTime;
+                if (item != null) {
+                    item.transform.RotateAround(transform.position, new Vector3(0, 0, 1f), speed); 
+                }
             }
             yield return null;
         }
@@ -79,4 +84,12 @@ public class BossAttack : MonoBehaviour
     public bool isDamageable() {
         return damageable;
     } 
+
+    public void Pause() {
+        paused = true;
+    }
+
+    public void Unpause() {
+        paused = false;
+    }
 }
