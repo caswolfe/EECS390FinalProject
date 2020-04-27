@@ -88,6 +88,7 @@ MonoBehaviour:
   soundEffects:
   - {fileID: 8300000, guid: 3d3243239a5187842b5e1e9e4c5e41b4, type: 3}
   - {fileID: 8300000, guid: 80a56f1e304409f40b8e3d36c18fdc36, type: 3}
+  - {fileID: 8300000, guid: 9db7e7cb028edc147b5d42c7995ca377, type: 3}
 --- !u!1 &6213173554891059427
 GameObject:
   m_ObjectHideFlags: 0

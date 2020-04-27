@@ -238,6 +238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundEffects:
   - {fileID: 8300000, guid: d1805f9a393e3b649861db950af73d90, type: 3}
+  - {fileID: 8300000, guid: 06f2fd7491a974141805eea76db8310e, type: 3}
+  - {fileID: 8300000, guid: 7fa9deb7e79a8244f997532e6d2e3419, type: 3}
+  - {fileID: 8300000, guid: 6bae7e4b0d3f10f42b64dcec8847b71c, type: 3}
+  - {fileID: 8300000, guid: b80eccd8ad347a648a5ee95f016aaaff, type: 3}
 --- !u!1 &7697340723067363031
 GameObject:
   m_ObjectHideFlags: 0
