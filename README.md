@@ -23,5 +23,5 @@ If they hit you, they'll deal some damage and then freeze to allow you to elimin
 You need to save all of them before you can move on to the next level  
 
 **Sinks** (Heal you!):  
-![Sinks](Village Evacuation/Assets/Graphics/Sprites/empty sink.png)  
+![Sinks](Village%20Evacuation/Assets/Graphics/Sprites/empty%20sink.png)  
 Washing your hands (standing near the sink) refreshes your hitpoints  
