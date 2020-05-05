@@ -44,6 +44,8 @@ public class UIManager : MonoBehaviour
 
     public lookAtCamera looker;
 
+    public GameObject bc;
+
     public AudioSource[] audioSources;
 
     /*
@@ -224,6 +226,7 @@ public class UIManager : MonoBehaviour
     public void onPlay(){
         SceneController.Instance.playerHealth = 100;
         SceneController.Instance.friendlies = 0;
+        bc.GetComponent<BossController>().reset();
         SceneManager.LoadScene("House1");
     }
 

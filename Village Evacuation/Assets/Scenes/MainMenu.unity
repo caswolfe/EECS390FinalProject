@@ -1318,6 +1318,7 @@ MonoBehaviour:
   volumeSlider: {fileID: 312675241}
   audioSources:
   - {fileID: 2134536528}
+  bc: {fileID: 194610100470648362, guid: dc0407356dc2b5442a783d32069cefb2, type: 3}
 --- !u!1001 &1410981961
 PrefabInstance:
   m_ObjectHideFlags: 0

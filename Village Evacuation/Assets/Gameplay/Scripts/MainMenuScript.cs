@@ -12,6 +12,7 @@ public class MainMenuScript : MonoBehaviour
     public Text volumeText;
     public Slider volumeSlider;
     public AudioSource[] audioSources;
+    public GameObject bc;
 
     void start(){
         Debug.Log("starting volume (main menu) :" + SceneController.Instance.volume);
@@ -35,6 +36,7 @@ public class MainMenuScript : MonoBehaviour
     public void onPlay(){
         SceneController.Instance.playerHealth = 100;
         SceneController.Instance.friendlies = 0;
+        bc.GetComponent<BossController>().reset();
         SceneManager.LoadScene("House1");
     }
 

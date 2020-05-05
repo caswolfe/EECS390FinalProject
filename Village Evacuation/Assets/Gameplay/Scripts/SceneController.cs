@@ -36,10 +36,10 @@ public class SceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* Obviously just for debug purposes:
+        /* Obviously just for debug purposes:*/
         if(Input.GetKeyDown("p")){
             SceneManager.LoadScene("Boss Fight");
-        }*/
+        }
     }
 
     public int getHealth() {

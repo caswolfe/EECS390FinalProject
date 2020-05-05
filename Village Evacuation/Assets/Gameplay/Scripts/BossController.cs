@@ -72,4 +72,8 @@ public class BossController : MonoBehaviour
         gameObject.GetComponent<BossAttack>().Unpause();
         gameObject.GetComponent<BossMovement>().enabled = true;
     }
+
+    public void reset() {
+        round = 1;
+    }
 }

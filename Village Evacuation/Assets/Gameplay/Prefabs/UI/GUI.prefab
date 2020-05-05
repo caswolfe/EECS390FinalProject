@@ -791,6 +791,7 @@ MonoBehaviour:
   cameraController: {fileID: 0}
   playerController: {fileID: 0}
   looker: {fileID: 0}
+  bc: {fileID: 8632687851968527145, guid: dc0407356dc2b5442a783d32069cefb2, type: 3}
   audioSources: []
 --- !u!1 &8201906895134664652
 GameObject:
